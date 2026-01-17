@@ -85,6 +85,8 @@ int main() {
     float   pib¹,       pib²;
     int    PT_Turisticos¹,  PT_turisticos²;
     int     Pontos¹ = 0,    Pontos² = 0;
+    
+
 
 
     //JOGADOR N°1
@@ -100,7 +102,7 @@ int main() {
         scanf("%d",&população¹);
     printf("QUANTO KM² DE EXTENSÃO DO ESTADO?\n");
         scanf("%f",&area_KM¹);
-    printf("QUAL O PIB PER CAPITA?\n");
+    printf("QUAL O PIB?\n");
         scanf("%f",&pib¹);
     printf("TOTAL DE PONTOS TURISTICOS?\n");
         scanf("%d",&PT_Turisticos¹);
@@ -119,24 +121,39 @@ int main() {
         scanf("%d",&população²);
     printf("QUANTO KM² DE EXTENSÃO DO ESTADO?\n");
         scanf("%f",&area_KM²);
-    printf("QUAL O PIB PER CAPITA?\n");
+    printf("QUAL O PIB?\n");
         scanf("%f",&pib²);
     printf("TOTAL DE PONTOS TURISTICOS?\n");
         scanf("%d",&PT_turisticos²);
 
+    //FOI INTRODUZIDO A VARIAÇÃO FLOAT PARA QUE A DIVISÃO DE DENSIDADE E PIB PER CAPITA FOSSEM POSSIVEIS.
+    float densidade¹, densidade²;
+    float pib_p_c¹, pib_p_c²;
+    
+    //DENSIDADE
+    densidade¹ = população¹ / area_KM¹;
+    densidade² = população² / area_KM²;
+
+    //PIB PER CAPITA
+    pib_p_c¹ = pib¹ / população¹;
+    pib_p_c² = pib² / população²;   
 
 
 
     //INFORMAÇÕES RESUMIDAS
+    
     //JOGADOR 1°
     printf("%s\n", player¹);
     printf("CÓDIGO: %s\n", carta¹);
     printf("ESTADO: %s\n", estado¹);
     printf("NOME DA CIDADE: %s\n", cidade¹);
-    printf("POPULAÇÃO: %i\n", população¹);
+    printf("POPULAÇÃO: %d\n", população¹);
     printf("ÁREA (EM KM²): %.2f KM²\n", area_KM¹);
     printf("PIB: %.2f REAIS\n", pib¹);
-    printf("NÚMERO DE PONTOS TURISTICOS: %i\n", PT_Turisticos¹);
+    printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_Turisticos¹);
+    printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade¹);
+    printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
+
 
 
     //JOGADOR 2°
@@ -146,8 +163,14 @@ int main() {
     printf("NOME DA CIDADE: %s\n", cidade²);
     printf("POPULAÇÃO: %i\n", população²);
     printf("ÁREA (EM KM²): %.2f KM²\n", area_KM²);
-    printf("PIB: %.02f REAIS\n", pib²);
-    printf("NÚMERO DE PONTOS TURISTICOS: %i\n", PT_turisticos²);
+    printf("PIB: %.2f REAIS\n", pib²);
+    printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_turisticos²);
+    printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade²);
+    printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
+
+
+    
+
 
     // Nesta parte será utilizada a estrutura IF e ELSE, realizando a comparação dos valores de cada carta. Os atributos considerados serão: Quantidade de população, Área em km², PIB per capita, Pontos turísticos.
 
