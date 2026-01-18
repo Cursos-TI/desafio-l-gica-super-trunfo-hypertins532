@@ -138,7 +138,11 @@ int main() {
     pib_p_c¹ = pib¹ / população¹;
     pib_p_c² = pib² / população²;   
 
+    //VARIAVEL PARA QUE SEJA REALIZADA A SOMA DE ATRIBUTOS DE CADA INDIVIDUO 
+    double superPoderA, superPoderB;
 
+    superPoderA = população¹ + area_KM¹ + pib¹ + PT_Turisticos¹ + pib_p_c¹;
+    superPoderB = população² + area_KM² + pib² + PT_turisticos² + pib_p_c²;
 
     //INFORMAÇÕES RESUMIDAS
     
@@ -153,6 +157,7 @@ int main() {
     printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_Turisticos¹);
     printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade¹);
     printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
+    printf("SUPERPODER DO %s: PW %.2f\n", player¹, superPoderA);
 
 
 
@@ -167,12 +172,12 @@ int main() {
     printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_turisticos²);
     printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade²);
     printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
-
+    printf("SUPERPODER DO %s: PW %.2f\n", player², superPoderB);
 
     
 
 
-    // Nesta parte será utilizada a estrutura IF e ELSE, realizando a comparação dos valores de cada carta. Os atributos considerados serão: Quantidade de população, Área em km², PIB per capita, Pontos turísticos.
+// Nesta parte será utilizada a estrutura IF e ELSE, realizando a comparação dos valores de cada carta. Os atributos considerados serão: Quantidade de população, Área em km², PIB per capita, Pontos turísticos.
 
   
 if (população¹ > população²)
@@ -195,19 +200,39 @@ if (PT_Turisticos¹ > PT_turisticos²)
     else{if(PT_Turisticos¹ < PT_turisticos²)
         Pontos²++;}
 
+if (superPoderA > superPoderB)
+{Pontos¹++;}
+    else{if(superPoderA < superPoderB)
+        Pontos²++;}
 
-// RESULTADO FINAL: Nesta etapa será exibida a pontuação de cada jogador, e identificado o vencedor ou o empate. Utilizando, printf, if e else
+    //UTILIZADO PARA DIFERENCIAR AS PONTUAÇÕES ENTRE OS PLAYERS!
+    int resultadoA, resultadoB;
+    resultadoA = superPoderA > superPoderB;
+    resultadoB = superPoderA < superPoderB;
+
 
     printf("RESULTADO FINAL!\n");
     printf("%s: PONTOS %d\n", player¹,  Pontos¹);
     printf("%s: PONTOS %d\n", player²,  Pontos²);
 
-
+    //IMPLEMENTADO PONTOS PARA QUE PODESSE MOSTRAR O PLAYER COM MAIORES ATRIBUTOS. // RESULTADO FINAL: Nesta etapa será exibida a pontuação de cada jogador, e identificado o vencedor ou o empate. Utilizando, printf, if e else
 if (Pontos¹ > Pontos²)
     {printf("VENCEDOR: %s\n", player¹);}
     else if (Pontos¹ < Pontos²)
     {printf("VENCEDOR: %s\n", player²);}
     else{printf("EMPATE!\n");}
+    
+    //O PRINT FOI USADO PARA DEMONSTRAR SE O RESULTADO DO PLAYERs SÃO VERDADEIRO OU FALSO DE CADA INDIVIDUO, AO COMPARATORIO DO SUPER PODER
+    printf("O PODER DO(A) %s É MAIOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA > superPoderB));
+    printf("O PODER DO(A) %s É MENOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA < superPoderB));
+
+    //iF E ELSE PARA ANUNCIAR O PLAYER COM MAIS PODER, SENDO O RESULTADO VERDADEIRO DEMONSTRADO PELO O NÚMERO 1
+if (superPoderA > superPoderB)
+    {printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player¹, superPoderA);}
+    else{printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player², superPoderB);}
+     
+        
+
     
     return 0;
 }
