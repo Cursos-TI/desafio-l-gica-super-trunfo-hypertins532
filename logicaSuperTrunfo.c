@@ -143,7 +143,7 @@ int main() {
         area_KM¹ = 903357.0;
         printf("PIB: R$ 273.000.000.000 BILHÕES\n");
         pib¹ = 273000000000.00;
-        printf("PONTOS TURISTICOS ESTIMATIVA: 231 PONTOS\n");
+        printf("PONTOS TURISTICOS ESTIMATIVA: 231 PONTOS\n"); 
         PT_Turisticos¹ = 231;
         break;
     }  
@@ -322,6 +322,10 @@ int main() {
     {Pontos¹++;}
         else{if(superPoderA < superPoderB)
             Pontos²++;}
+if (densidade¹ < densidade²)
+    {Pontos¹++;}
+        else{if(superPoderA > superPoderB)
+            Pontos²++;}
 
         //UTILIZADO PARA DIFERENCIAR AS PONTUAÇÕES ENTRE OS PLAYERS!
         int resultadoA, resultadoB;
@@ -332,6 +336,8 @@ int main() {
         printf("RESULTADO FINAL!\n");
         printf("%s: PONTOS %d\n", player¹,  Pontos¹);
         printf("%s: PONTOS %d\n", player²,  Pontos²);
+        
+        
 
         //IMPLEMENTADO PONTOS PARA QUE PODESSE MOSTRAR O PLAYER COM MAIORES ATRIBUTOS. // RESULTADO FINAL: Nesta etapa será exibida a pontuação de cada jogador, e identificado o vencedor ou o empate. Utilizando, printf, if e else
     if (Pontos¹ > Pontos²)
@@ -345,9 +351,16 @@ int main() {
         printf("O PODER DO(A) %s É MENOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA < superPoderB));
 
         //iF E ELSE PARA ANUNCIAR O PLAYER COM MAIS PODER, SENDO O RESULTADO VERDADEIRO DEMONSTRADO PELO O NÚMERO 1
+    
+    if ((densidade¹ > densidade²) && (densidade¹ < densidade²))
+        {   printf("O VENCEDOR COM MENOR DENSIDADE: %s\n", player¹);}
+        else{printf("O VENCEDOR COM MENOR DENSIDADE: %s\n", player²);}
+
     if (superPoderA > superPoderB)
         {printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player¹, superPoderA);}
         else{printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player², superPoderB);}
+
+   
         
         
         
