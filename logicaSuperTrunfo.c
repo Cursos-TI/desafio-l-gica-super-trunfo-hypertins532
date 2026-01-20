@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 // Desafio Super Trunfo - Países
 // Tema 2 - Comparação das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
@@ -39,200 +40,345 @@ int main() {
     // Exemplo:
     // printf("A cidade vencedora é: %s\n", cidadeVencedora);
 
-      /* 
-    BEM-VINDO AO JOGO DE CARTAS DOS ESTADOS E CIDADES!
-
-    Este é um jogo básico e simples de aprender. A seguir, serão apresentadas instruções para cada etapa:
-
-    1ª ETAPA — NOME DO JOGADOR:
-        Ao iniciar, será solicitado o nome do 1º jogador. Após informar, pressione ENTER para avançar.
-
-    2ª ETAPA — CÓDIGO DA CARTA:
-        Informe a abreviação do estado seguida de "01" para o jogador 1 ou "02" para o jogador 2.
-        Exemplo: MINAS GERAIS → MG01 (jogador 1), MG02 (jogador 2)
-
-    3ª ETAPA — ESTADO:
-        Digite o nome do estado conforme o código informado na etapa anterior.
-        Para estados compostos (com substantivo e adjetivo), utilize o subtraço "_" para separar as palavras.
-        Exemplo: RIO_DE_JANEIRO
-
-    4ª ETAPA — CIDADE:
-        Escolha qualquer cidade dentro do território estadual selecionado.
-        Para cidades compostas, também utilize o subtraço "_" entre as palavras.
-        Exemplo: BELO_HORIZONTE
-
-    5ª A 9ª ETAPA — VALORES ALEATÓRIOS:
-        Serão solicitados dados como população, área, PIB per capita e pontos turísticos.
-        Esses valores são livres e servem apenas para diversão!
-
-    FINALIZAÇÃO:
-        Após o preenchimento completo por ambos os jogadores, será calculada a pontuação individual.
-        O jogador com maior pontuação será declarado vencedor.
-        Em caso de não haver vencedor, será declarado empate,, pois não houve pontuação superior.
-                            DIVIRTA-SE
-    */
     
 
 
-
-    // VARIAVEIS, será usadas char, int e float
-    char    player¹[30],    player²[30];
-    char    carta¹[30],     carta²[30];
-    char    estado¹[50],    estado²[50];
-    char    cidade¹[30],    cidade²[30];
-    int    população¹, população²;
-    float   area_KM¹,   area_KM²;
-    float   pib¹,       pib²;
-    int    PT_Turisticos¹,  PT_turisticos²;
-    int     Pontos¹ = 0,    Pontos² = 0;
     
+    // Declaração das variáveis principais
+    char    player¹[30],    player²[30];    //NOME DOS JOGADORES
+    int     carta¹,     carta²;             //CARTA ESCOLHIDA POR CADA JOGADOR
+    int     menuGame;                       //OÇÃO DO MENU
+    int    populacao1, populacao2;          //POPULAÇÃO DOS ESTADOS
+    float   area_KM¹,   area_KM²;           //EXTENSÃO TERRITORIAL
+    float   pib¹,       pib²;               //PIB ESTADUAL
+    int    PT_Turisticos¹,  PT_turisticos²; //PONTOS TURISTICOS
+    int     Pontos¹ = 0,    Pontos² = 0;    //PONTUAÇÕES
+    
+    //MENU PRINCIPAL
+    printf("****BEM VINDO AO JOGO DE CARTAS****\n");
+    printf("1. PLAY!\n");
+    printf("2. REGRAS!\n");
+    printf("3. SAIR DO JOGO!\n");
+    scanf("%d", &menuGame);
 
+    // ESTRUTURA DE DECISÃO
+    switch (menuGame)
+    {
+    case 1:
+        printf("INCIANDO O JOGO...\n");
+        break;
+    case 2:
+        printf("REGRA 1° INSERIR SEU NOME!\n");
+        printf("REGRA 2° ESCOLHER A CARTA!\n");
+        printf("REGRA 2° SELECIONA O ATRIBUTO PARA COMPARAÇÃO!\n");
+        printf("REGRA 4° A MAIS IMPORTANTE DE TODAS!\n" "#######SE DIVIRTA######!\n");
+        break;
+    case 3:
+        printf("EXIT...\n");
+        break;
+    }
 
 
     //JOGADOR N°1
     printf("NOME DO 1° JOGADOR\n");
-        scanf("%s", player¹);
-    printf("Código DA CARTA\n");
-        scanf("%s",carta¹);
-    printf("QUAL O ESTADO?\n");
-        scanf("%s",estado¹);
-    printf("CIDADE?\n");
-        scanf("%s",cidade¹);
-    printf("N° DE POPULAÇÃO\n");
-        scanf("%d",&população¹);
-    printf("QUANTO KM² DE EXTENSÃO DO ESTADO?\n");
-        scanf("%f",&area_KM¹);
-    printf("QUAL O PIB?\n");
-        scanf("%f",&pib¹);
-    printf("TOTAL DE PONTOS TURISTICOS?\n");
-        scanf("%d",&PT_Turisticos¹);
-    
+        scanf("%s", &player¹);
+    printf("***ESCOLHA A CARTA!***\n");
+    printf("1.SP01\n");
+    printf("2.RJ01\n");
+    printf("3.MG01\n");
+    printf("4.MT01\n");
+        scanf("%d", &carta¹);
 
-    //JOGADORA N°2
+    switch (carta¹)
+    {
+    case 1:
+        printf("***SELECIONOU A CARTA SP01***\n");
+        printf("ESTADO DE SÃO PAULO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 46.081.801 habitantes\n");
+        populacao1 = 46081801;
+        printf("EXTENSÃO TERRITORIAL DE: 248.219 km²\n");
+        area_KM¹ = 248219.0;
+        printf("PIB: R$ 3.444.814.000.000 TRILHÕES\n");
+        pib¹ = 3444814000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 124 PONTOS\n");
+        PT_Turisticos¹ = 124;
+        break;
+
+    case 2:
+        printf("***SELECIONOU A CARTA RJ01***\n");
+        printf("ESTADO DE RIO DE JANEIRO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 17.223.547 habitantes\n");
+        populacao1 = 17223547;
+        printf("EXTENSÃO TERRITORIAL DE: 43.696 km²\n");
+        area_KM¹ = 43696.0;
+        printf("PIB: R$ 1.172.871.000.000 TRILHÕES\n");
+        pib¹ = 1172871000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 190 PONTOS\n");
+        PT_Turisticos¹ = 190;
+        break;
+
+    case 3:
+        printf("***SELECIONOU A CARTA MG01***\n");
+        printf("ESTADO DE MINAS GERAIS\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 21.393.441 habitantes\n");
+        populacao1 = 21393441;
+        printf("EXTENSÃO TERRITORIAL DE: 586.528 km²\n");
+        area_KM¹ = 586528.0;
+        printf("PIB: R$ 971.978.000.000 BILHÕES\n");
+        pib¹ = 971978000000.0;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 230 PONTOS\n");
+        PT_Turisticos¹ = 230;
+        break;
+
+    case 4:
+        printf("***SELECIONOU A CARTA MT01***\n");
+        printf("ESTADO DE MATO GROSSO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 3.658.813 habitantes\n");
+        populacao1 = 3658813;
+        printf("EXTENSÃO TERRITORIAL DE: 903.357 km²\n");
+        area_KM¹ = 903357.0;
+        printf("PIB: R$ 273.000.000.000 BILHÕES\n");
+        pib¹ = 273000000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 231 PONTOS\n");
+        PT_Turisticos¹ = 231;
+        break;
+    }  
+
+
+    //JOGADOR N°2
     printf("NOME DO 2° JOGADOR\n");
-        scanf("%s", player²);
-    printf("Código DA CARTA\n");
-        scanf("%s",carta²);
-    printf("QUAL O ESTADO?\n");
-        scanf("%s",estado²);
-    printf("CIDADE?\n");
-        scanf("%s",cidade²);
-    printf("N° DE POPULAÇÃO\n");
-        scanf("%d",&população²);
-    printf("QUANTO KM² DE EXTENSÃO DO ESTADO?\n");
-        scanf("%f",&area_KM²);
-    printf("QUAL O PIB?\n");
-        scanf("%f",&pib²);
-    printf("TOTAL DE PONTOS TURISTICOS?\n");
-        scanf("%d",&PT_turisticos²);
+        scanf("%s", &player²);
+    printf("***ESCOLHA A CARTA!***\n");
+    printf("1.SP01\n");
+    printf("2.RJ01\n");
+    printf("3.MG01\n");
+    printf("4.MT01\n");
+        scanf("%d", &carta²);
+
+    switch (carta²)
+    {
+    case 1:
+        printf("***SELECIONOU A CARTA SP01***\n");
+        printf("ESTADO DE SÃO PAULO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 46.081.801 habitantes\n");
+        populacao2 = 46081801;
+        printf("EXTENSÃO TERRITORIAL DE: 248.219 km²\n");
+        area_KM² = 248219.0;
+        printf("PIB: R$ 3.444.814.000.000 TRILHÕES\n");
+        pib² = 3444814000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 124 PONTOS\n");
+        PT_turisticos² = 124;
+        break;
+
+    case 2:
+        printf("***SELECIONOU A CARTA RJ01***\n");
+        printf("ESTADO DE RIO DE JANEIRO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 17.223.547 habitantes\n");
+        populacao2 = 17223547;
+        printf("EXTENSÃO TERRITORIAL DE: 43.696 km²\n");
+        area_KM² = 43696.0;
+        printf("PIB: R$ 1.172.871.000.000 TRILHÕES\n");
+        pib² = 1172871000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 190 PONTOS\n");
+        PT_turisticos² = 190;
+        break;
+
+    case 3:
+        printf("***SELECIONOU A CARTA MG01***\n");
+        printf("ESTADO DE MINAS GERAIS\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 21.393.441 habitantes\n");
+        populacao2 = 21393441;
+        printf("EXTENSÃO TERRITORIAL DE: 586.528 km²\n");
+        area_KM² = 586528.0;
+        printf("PIB: R$ 971.978.000.000 BILHÕES\n");
+        pib² = 971978000000.0;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 230 PONTOS\n");
+        PT_turisticos² = 230;
+        break;
+    case 4:
+        printf("***SELECIONOU A CARTA MT01***\n");
+        printf("ESTADO DE MATO GROSSO\n");
+        printf("#ATRIBUTOS#\n");
+        printf("N° POPULACIONAL DE: 3.658.813 habitantes\n");
+        populacao2 = 3658813;
+        printf("EXTENSÃO TERRITORIAL DE: 903.357 km²\n");
+        area_KM² = 903357.0;
+        printf("PIB: R$ 273.000.000.000 BILHÕES\n");
+        pib² = 273000000000.00;
+        printf("PONTOS TURISTICOS ESTIMATIVA: 231 PONTOS\n");
+        PT_turisticos² = 231;
+        break;
+    }  
+
+
+
+    //ATRIBUTO PARA COMPARAÇÃO (X1)
+
+        printf("*** BEM-VINDO A PARTE FINAL***\n");
+        printf("***AQUI SERA SELECIONADO O ATRIBUTO PARA ANUNCIAR O VENCEDOR DO X1 NO ATRIBUTO***\n");
+        printf("LEMBRANDO QUE SÓ GANHARÁ QUE TIVER MAIS FORÇA COM TODOS OS ATRIBUTOS OU PODERÁ GERAR UM EMPATE!\n");
+
+
+        printf("**** SELECIONA O ATRIBUTO DE X1 ****\n");
+        printf("1.POPULAÇÃO!\n");
+        printf("2.EXTENSÃO TERRITORIAL!\n");
+        printf("3.PIB!\n");
+        printf("4.PONTOS TURISTICOS!\n");
+            scanf("%d", &carta¹);
+
+    // COMPARAÇÃO DE ATRIBUTOS ESCOLHIDOS
+    switch (carta¹)
+    {
+    case 1:
+        printf("***POPULAÇÃO***\n");
+            if (populacao1 > populacao2)
+                {printf("VENCEDOR É O PLAYER: %s\n", player¹);
+            }else if (populacao1 < populacao2)
+                {printf("VENCEDOR É O PLAYER: %s\n", player²);
+            }
+        break;
+    
+    case 2:
+        printf("***EXTENSÃO TERRITORIAL***\n");
+            if (area_KM¹ > area_KM²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player¹);
+            }else if (area_KM¹ < area_KM²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player²);}
+            
+        break;
+
+    case 3:
+        printf("***EXTENSÃO TERRITORIAL***\n");
+            if (pib¹ > pib²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player¹);
+            }else if (pib¹ < pib²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player²);}
+            
+    
+    case 4:
+        printf("***EXTENSÃO TERRITORIAL***\n");
+            if (PT_Turisticos¹ > PT_turisticos²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player¹);
+            }else if (PT_Turisticos¹ < PT_turisticos²)
+                {printf("VENCEDOR É O PLAYER: %s\n", player²);}
+            break;
+    }
+
+
+
+
 
     //FOI INTRODUZIDO A VARIAÇÃO FLOAT PARA QUE A DIVISÃO DE DENSIDADE E PIB PER CAPITA FOSSEM POSSIVEIS.
     float densidade¹, densidade²;
     float pib_p_c¹, pib_p_c²;
-    
-    //DENSIDADE
-    densidade¹ = população¹ / area_KM¹;
-    densidade² = população² / area_KM²;
 
-    //PIB PER CAPITA
-    pib_p_c¹ = pib¹ / população¹;
-    pib_p_c² = pib² / população²;   
+
+        //DENSIDADES
+        densidade¹ = populacao1 / area_KM¹;
+        densidade² = populacao2 / area_KM²;
+
+        //PIB PER CAPITA
+        pib_p_c¹ = pib¹ / populacao1;
+        pib_p_c² = pib² / populacao2;   
 
     //VARIAVEL PARA QUE SEJA REALIZADA A SOMA DE ATRIBUTOS DE CADA INDIVIDUO 
     double superPoderA, superPoderB;
 
-    superPoderA = população¹ + area_KM¹ + pib¹ + PT_Turisticos¹ + pib_p_c¹;
-    superPoderB = população² + area_KM² + pib² + PT_turisticos² + pib_p_c²;
-
-    //INFORMAÇÕES RESUMIDAS
+        superPoderA = populacao1 + area_KM¹ + pib¹ + PT_Turisticos¹ + pib_p_c¹;
+        superPoderB = populacao2 + area_KM² + pib² + PT_turisticos² + pib_p_c²;
     
-    //JOGADOR 1°
-    printf("%s\n", player¹);
-    printf("CÓDIGO: %s\n", carta¹);
-    printf("ESTADO: %s\n", estado¹);
-    printf("NOME DA CIDADE: %s\n", cidade¹);
-    printf("POPULAÇÃO: %d\n", população¹);
-    printf("ÁREA (EM KM²): %.2f KM²\n", area_KM¹);
-    printf("PIB: %.2f REAIS\n", pib¹);
-    printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_Turisticos¹);
-    printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade¹);
-    printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
-    printf("SUPERPODER DO %s: PW %.2f\n", player¹, superPoderA);
-
-
-
-    //JOGADOR 2°
-    printf("%s\n", player²);
-    printf("CÓDIGO: %s\n", carta²);
-    printf("ESTADO: %s\n", estado²);
-    printf("NOME DA CIDADE: %s\n", cidade²);
-    printf("POPULAÇÃO: %i\n", população²);
-    printf("ÁREA (EM KM²): %.2f KM²\n", area_KM²);
-    printf("PIB: %.2f REAIS\n", pib²);
-    printf("NÚMERO DE PONTOS TURISTICOS: %d\n", PT_turisticos²);
-    printf("DENSIDADE POPULACIONAL: %.2f Hab'Km²\n",  densidade²);
-    printf("PIB PER CAPITA: %.2f reais\n",    pib_p_c¹);
-    printf("SUPERPODER DO %s: PW %.2f\n", player², superPoderB);
-
     
-
-
 // Nesta parte será utilizada a estrutura IF e ELSE, realizando a comparação dos valores de cada carta. Os atributos considerados serão: Quantidade de população, Área em km², PIB per capita, Pontos turísticos.
 
   
-if (população¹ > população²)
-{Pontos¹++;}
-    else{if(população¹ < população²)    
-        Pontos²++;}
+    if (populacao1 > populacao2)
+    {Pontos¹++;}
+        else{if(populacao1 < populacao2)    
+            Pontos²++;}
 
-if (area_KM¹ > area_KM²)
-{Pontos¹++;}
-    else{if(area_KM¹ < area_KM²)
-        Pontos²++;}
+    if (area_KM¹ > area_KM²)
+    {Pontos¹++;}
+        else{if(area_KM¹ < area_KM²)
+            Pontos²++;}
 
-if (pib¹ > pib²)
-{Pontos¹++;}
-    else{if(pib¹ < pib²)
-        Pontos²++;}
+    if (pib¹ > pib²)
+    {Pontos¹++;}
+        else{if(pib¹ < pib²)
+            Pontos²++;}
 
-if (PT_Turisticos¹ > PT_turisticos²)
-{Pontos¹++;}
-    else{if(PT_Turisticos¹ < PT_turisticos²)
-        Pontos²++;}
+    if (PT_Turisticos¹ > PT_turisticos²)
+    {Pontos¹++;}
+        else{if(PT_Turisticos¹ < PT_turisticos²)
+            Pontos²++;}
 
-if (superPoderA > superPoderB)
-{Pontos¹++;}
-    else{if(superPoderA < superPoderB)
-        Pontos²++;}
+    if (superPoderA > superPoderB)
+    {Pontos¹++;}
+        else{if(superPoderA < superPoderB)
+            Pontos²++;}
 
-    //UTILIZADO PARA DIFERENCIAR AS PONTUAÇÕES ENTRE OS PLAYERS!
-    int resultadoA, resultadoB;
-    resultadoA = superPoderA > superPoderB;
-    resultadoB = superPoderA < superPoderB;
+        //UTILIZADO PARA DIFERENCIAR AS PONTUAÇÕES ENTRE OS PLAYERS!
+        int resultadoA, resultadoB;
+        resultadoA = superPoderA > superPoderB;
+        resultadoB = superPoderA < superPoderB;
 
 
-    printf("RESULTADO FINAL!\n");
-    printf("%s: PONTOS %d\n", player¹,  Pontos¹);
-    printf("%s: PONTOS %d\n", player²,  Pontos²);
+        printf("RESULTADO FINAL!\n");
+        printf("%s: PONTOS %d\n", player¹,  Pontos¹);
+        printf("%s: PONTOS %d\n", player²,  Pontos²);
 
-    //IMPLEMENTADO PONTOS PARA QUE PODESSE MOSTRAR O PLAYER COM MAIORES ATRIBUTOS. // RESULTADO FINAL: Nesta etapa será exibida a pontuação de cada jogador, e identificado o vencedor ou o empate. Utilizando, printf, if e else
-if (Pontos¹ > Pontos²)
-    {printf("VENCEDOR: %s\n", player¹);}
-    else if (Pontos¹ < Pontos²)
-    {printf("VENCEDOR: %s\n", player²);}
-    else{printf("EMPATE!\n");}
-    
-    //O PRINT FOI USADO PARA DEMONSTRAR SE O RESULTADO DO PLAYERs SÃO VERDADEIRO OU FALSO DE CADA INDIVIDUO, AO COMPARATORIO DO SUPER PODER
-    printf("O PODER DO(A) %s É MAIOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA > superPoderB));
-    printf("O PODER DO(A) %s É MENOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA < superPoderB));
-
-    //iF E ELSE PARA ANUNCIAR O PLAYER COM MAIS PODER, SENDO O RESULTADO VERDADEIRO DEMONSTRADO PELO O NÚMERO 1
-if (superPoderA > superPoderB)
-    {printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player¹, superPoderA);}
-    else{printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player², superPoderB);}
-     
+        //IMPLEMENTADO PONTOS PARA QUE PODESSE MOSTRAR O PLAYER COM MAIORES ATRIBUTOS. // RESULTADO FINAL: Nesta etapa será exibida a pontuação de cada jogador, e identificado o vencedor ou o empate. Utilizando, printf, if e else
+    if (Pontos¹ > Pontos²)
+        {printf("VENCEDOR: %s\n", player¹);}
+        else if (Pontos¹ < Pontos²)
+        {printf("VENCEDOR: %s\n", player²);}
+        else{printf("EMPATE!\n");}
         
+        //O PRINT FOI USADO PARA DEMONSTRAR SE O RESULTADO DO PLAYERs SÃO VERDADEIRO OU FALSO DE CADA INDIVIDUO, AO COMPARATORIO DO SUPER PODER
+        printf("O PODER DO(A) %s É MAIOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA > superPoderB));
+        printf("O PODER DO(A) %s É MENOR QUE O PODER DO(A) %s:  %d\n", player¹, player², (superPoderA < superPoderB));
 
+        //iF E ELSE PARA ANUNCIAR O PLAYER COM MAIS PODER, SENDO O RESULTADO VERDADEIRO DEMONSTRADO PELO O NÚMERO 1
+    if (superPoderA > superPoderB)
+        {printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player¹, superPoderA);}
+        else{printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player², superPoderB);}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     return 0;
 }
