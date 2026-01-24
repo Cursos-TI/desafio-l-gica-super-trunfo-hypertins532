@@ -80,14 +80,14 @@ int main() {
 
 
     //JOGADOR N°1
-    printf("NOME DO 1° JOGADOR\n");
-        scanf("%s", &player¹);
-    printf("***ESCOLHA A CARTA!***\n");
-    printf("1.SP01\n");
-    printf("2.RJ01\n");
-    printf("3.MG01\n");
-    printf("4.MT01\n");
-        scanf("%d", &carta¹);
+        printf("NOME DO 1° JOGADOR\n");
+            scanf("%s", &player¹);
+        printf("***ESCOLHA A CARTA!***\n");
+        printf("1.SP01\n");
+        printf("2.RJ01\n");
+        printf("3.MG01\n");
+        printf("4.MT01\n");
+            scanf("%d", &carta¹);
 
     switch (carta¹)
     {
@@ -149,15 +149,15 @@ int main() {
     }  
 
 
-    //JOGADOR N°2
-    printf("NOME DO 2° JOGADOR\n");
-        scanf("%s", &player²);
-    printf("***ESCOLHA A CARTA!***\n");
-    printf("1.SP01\n");
-    printf("2.RJ01\n");
-    printf("3.MG01\n");
-    printf("4.MT01\n");
-        scanf("%d", &carta²);
+        //JOGADOR N°2
+        printf("NOME DO 2° JOGADOR\n");
+            scanf("%s", &player²);
+        printf("***ESCOLHA A CARTA!***\n");
+        printf("1.SP01\n");
+        printf("2.RJ01\n");
+        printf("3.MG01\n");
+        printf("4.MT01\n");
+            scanf("%d", &carta²);
 
     switch (carta²)
     {
@@ -233,6 +233,9 @@ int main() {
         printf("4.PONTOS TURISTICOS!\n");
             scanf("%d", &carta¹);
 
+
+         printf("RESULTADO FINAL!\n");
+         
     // COMPARAÇÃO DE ATRIBUTOS ESCOLHIDOS
     switch (carta¹)
     {
@@ -288,6 +291,93 @@ int main() {
         pib_p_c¹ = pib¹ / populacao1;
         pib_p_c² = pib² / populacao2;   
 
+    
+    int resultado¹, resultado²;
+    int especial¹, especial²;
+    float finality¹, finality²;
+    float defesa¹, defesa²;
+
+    especial¹ = populacao1 / PT_Turisticos¹;
+    especial² = populacao2 / PT_turisticos²;
+    
+    
+    finality¹ = pib¹ / area_KM¹;
+    finality² = pib² / area_KM²;
+
+
+    defesa¹ = populacao1 * PT_Turisticos¹;
+    defesa² = populacao2 * PT_turisticos²;
+
+
+        printf("### MOMENTO GUERRA ###\n");
+        printf("SELECIONE O ATRIBUTO DE GUERRA!!!\n");
+        printf("A. ATAQUE!\n");
+        printf("F. DEVASTAÇÃO!\n");
+        printf("S. DEFESA\n");
+            scanf(" %c", &carta¹);
+
+        switch (carta¹)
+        {
+        case 'A':
+        case 'a':
+            resultado¹ = especial¹ > especial² ? 1 : 0 ;
+            break;
+        
+        case 'F':
+        case 'f':
+            resultado¹ = finality¹ > finality² ? 1 : 0 ;
+            break;
+        
+        case 'S':
+        case 's':
+            resultado¹ = defesa¹ > defesa² ? 1 : 0 ;
+            break;
+
+        }
+
+
+            printf("SELECIONE O ATRIBUTO DE GUERRA!!!\n");
+            printf("A. ATAQUE!\n");
+            printf("F. DEVASTAÇÃO!\n");
+            printf("S. DEFESA\n");
+                scanf(" %c", &carta²);
+
+
+        if (carta¹ == carta²)
+        {
+            printf("MESMO ATRIBUTO SELECIONADO!!!\n");
+        }
+
+        switch (carta²)
+        {
+        case 'A':
+        case 'a':
+            resultado² = especial¹ < especial² ? 1 : 0 ;
+            break;
+        
+        case 'F':
+        case 'f':
+            resultado² = finality¹ < finality² ? 1 : 0 ;
+            break;
+        
+        case 'S':
+        case 's':
+            resultado² = defesa¹ < defesa² ? 1 : 0 ;
+            break;
+
+        }
+
+   if (resultado¹ != resultado²) {
+        if (resultado¹ == 1) {
+            printf("PARABÉNS!!! %s VENCEU NA GUERRA\n", player¹);
+        } else {
+            printf("PARABÉNS!!! %s VENCEU NA GUERRA\n", player²);
+        }
+    } else {
+        printf("####EMPATE NA GUERRA####\n");
+    }
+
+
     //VARIAVEL PARA QUE SEJA REALIZADA A SOMA DE ATRIBUTOS DE CADA INDIVIDUO 
     double superPoderA, superPoderB;
 
@@ -333,7 +423,7 @@ if (densidade¹ < densidade²)
         resultadoB = superPoderA < superPoderB;
 
 
-        printf("RESULTADO FINAL!\n");
+        
         printf("%s: PONTOS %d\n", player¹,  Pontos¹);
         printf("%s: PONTOS %d\n", player²,  Pontos²);
         
@@ -352,9 +442,10 @@ if (densidade¹ < densidade²)
 
         //iF E ELSE PARA ANUNCIAR O PLAYER COM MAIS PODER, SENDO O RESULTADO VERDADEIRO DEMONSTRADO PELO O NÚMERO 1
     
-    if ((densidade¹ > densidade²) && (densidade¹ < densidade²))
+    if (densidade¹ > densidade²)
         {   printf("O VENCEDOR COM MENOR DENSIDADE: %s\n", player¹);}
-        else{printf("O VENCEDOR COM MENOR DENSIDADE: %s\n", player²);}
+        else if (densidade¹ < densidade²)
+            {printf("O VENCEDOR COM MENOR DENSIDADE: %s\n", player²);}
 
     if (superPoderA > superPoderB)
         {printf("O JOGADOR VENCEDOR COM O MAIOR PODER: %s PW %.2f\n", player¹, superPoderA);}
